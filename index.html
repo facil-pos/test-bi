@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
             align-items: center;
             height: 100vh;
         }
+
         #chat-container {
             display: none;
             width: 300px;
@@ -21,6 +23,7 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+
         #messages {
             height: 300px;
             overflow-y: scroll;
@@ -28,27 +31,33 @@
             margin-bottom: 10px;
             padding: 10px;
         }
+
         #messages p {
             margin: 5px 0;
         }
+
         .user-message {
             text-align: right;
             color: blue;
         }
+
         .api-response {
             text-align: left;
             color: green;
         }
+
         #input-container {
             display: flex;
             gap: 10px;
         }
+
         #message-input {
             flex: 1;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
         #send-button {
             padding: 10px 15px;
             background-color: #28a745;
@@ -57,6 +66,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         #db-dialog {
             display: flex;
             flex-direction: column;
@@ -66,39 +76,98 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        #db-input {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+
+        #db-dialog {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        #db-dialog h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #db-dialog p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        #db-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .db-example {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
         #db-username {
-            padding: 10px 15px;
-            background-color: #007bff;
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
+            font-size: 1em;
             cursor: pointer;
+        }
+
+        #db-username:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
 
-<div id="db-dialog">
-    <h3>Bienvenido al Chat</h3>
-    <p>Por favor, Ingresa una URL de conexion a una base de datos omite el engine:</p>
-    <input type="text" id="db-input" placeholder="por ejemplo... root:123456@127.0.0.1:3306/messagehistoryrag"/>
-    <button id="db-username">Confirmar</button>
-</div>
+    <div id="db-dialog">
+        <h3>Bienvenido a la Demo de Business Intelligence (BI)</h3>
+        <p>Esta demostración está diseñada como una herramienta para un agente LLM. Por esta razón, no cuenta con
+            memoria ni con capacidades de razonamiento a largo plazo.</p>
+        <p>Su propósito es responder preguntas basadas en los datos disponibles en la base de datos. Si la respuesta no
+            es satisfactoria, te recomendamos reformular la pregunta.</p>
 
-<div id="chat-container">
-    <div id="messages"></div>
-    <div id="input-container">
-        <input type="text" id="message-input" placeholder="Escribe un mensaje..." />
-        <button id="send-button">Enviar</button>
+        <label for="db-input">Por favor, ingresa una URL de conexión a la base de datos (sin incluir el motor de base de
+            datos):</label>
+        <input type="text" id="db-input" placeholder="Ejemplo: root:123456@127.0.0.1:3306/messagehistoryrag" />
+
+        <p class="db-example">Si no tienes acceso a una base de datos, puedes utilizar esta de prueba:</p>
+        <p class="db-example">test_asuna:a8Jk3L9mQ2pR7sT4vW@127.0.0.1:3306/inpos_ayudakarla2</p>
+
+        <button id="db-username">Confirmar</button>
     </div>
-</div>
 
-<script src="chat.js"></script>
+
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div id="input-container">
+            <input type="text" id="message-input" placeholder="Escribe un mensaje..." />
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
 
 </body>
+
 </html>
