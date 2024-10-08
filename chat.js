@@ -102,7 +102,7 @@ sendButton.addEventListener('click', async () => {
             const sql_query_generated = jsonResponse.sql_query_generated
             // Agregar la respuesta de la API al chat
             addMessageToChat(`Respuesta: ${JSON.stringify(apiResponse)}`, 'api-response');
-            addMessageToChat(`Consulta SQL generada: ${sql_query_generated}`, 'api-response');
+            //addMessageToChat(`Consulta SQL generada: ${sql_query_generated}`, 'api-response');
 
         } else {
             addMessageToChat('Error al conectarse con la API', 'api-response');
